@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-//¸ğ¹ÙÀÏ Á¶ÀÌ½ºÆ½ Á¶ÀÛ
+// ëª¨ë°”ì¼ ì¡°ì´ìŠ¤í‹± ì¡°ì‘
 
 public class JoyStickR : UIset, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
@@ -44,7 +44,7 @@ public class JoyStickR : UIset, IBeginDragHandler, IDragHandler, IEndDragHandler
         go = false;
     }
 
-    private void TouchTrace(Vector2 eventData) // Á¶ÀÌ½ºÆ½ ±¸Çö
+    private void TouchTrace(Vector2 eventData) // ì¡°ì´ìŠ¤í‹± êµ¬í˜„
     {
         if (Vector2.Distance(eventData - temp, zeroPos) > backPos.rect.width / 2)
         {
@@ -56,7 +56,7 @@ public class JoyStickR : UIset, IBeginDragHandler, IDragHandler, IEndDragHandler
         }
     }
 
-    public void Rotation() // ½ÇÁ¦ ÀÌµ¿
+    public void Rotation() // ì‹¤ì œ ì´ë™
     {
         if (go)
         {
@@ -78,7 +78,7 @@ public class JoyStickR : UIset, IBeginDragHandler, IDragHandler, IEndDragHandler
     }
 
 
-    // ¹Î°¨µµ Á¶Àı
+    // ë¯¼ê°ë„ ì¡°ì ˆ
     public void SensitiveUp()
     {
         if (rotateSpeed < 30)
