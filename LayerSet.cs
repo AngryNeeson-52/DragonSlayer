@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// ¼ÒÇ° LOD ´ëÃ¼ ·¹ÀÌ¾î ÄÃ¸µ
+//ì†Œí’ˆ LOD ëŒ€ì²´ ë ˆì´ì–´ ì»¬ë§
 
 public class LayerSet : MonoBehaviour
 {

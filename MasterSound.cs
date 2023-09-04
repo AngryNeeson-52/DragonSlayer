@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// ÀüÃ¼ ¼Ò¸® Å©±â °ü¸®
+//ì „ì²´ ì†Œë¦¬ í¬ê¸° ê´€ë¦¬
 
 public class MasterSound : MonoBehaviour
 {

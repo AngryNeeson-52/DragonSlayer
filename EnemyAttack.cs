@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// ¸ó½ºÅÍ °ø°İ ÆÇÁ¤
+//ëª¬ìŠ¤í„° ê³µê²© íŒì •
 
 public class EnemyAttack : MonoBehaviour
 {

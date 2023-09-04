@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//ÇÃ·¹ÀÌ¾î ½ºÅÈ Àû¿ë
+// í”Œë ˆì´ì–´ ìŠ¤íƒ¯ ì ìš©
 
 public class PlayerStats : Stats
 {

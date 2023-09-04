@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//½Ã½ºÅÛ ¸Ş½ÃÁö ÀÌµ¿ & ÆÄ±«
+// ì‹œìŠ¤í…œ ë©”ì‹œì§€ ì´ë™ & íŒŒê´´
 
 public class TextFloating : MonoBehaviour
 {

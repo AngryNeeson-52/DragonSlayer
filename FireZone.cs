@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// ºÒÀåÆÇ ÄÚµå
+//  ë¶ˆì¥íŒ ì½”ë“œ
 public class FireZone : MonoBehaviour
 {
     void Start()

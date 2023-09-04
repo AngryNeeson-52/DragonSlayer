@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// È¿°úÀ½, ¹è°æÀ½ Á¤¸®
+//íš¨ê³¼ìŒ, ë°°ê²½ìŒ ì •ë¦¬
 
 [System.Serializable]
 public class Sound
@@ -24,7 +24,7 @@ public class SoundDic : MonoBehaviour
 
     private WaitForSeconds waittime = new WaitForSeconds(0.1f);
 
-    public void SetVol(float effect, float field) // º¼·ı ÀçÁ¶Á¤
+    public void SetVol(float effect, float field) // ë³¼ë¥¨ ì¬ì¡°ì •
     {
         if (effectSound)
         {
@@ -38,7 +38,7 @@ public class SoundDic : MonoBehaviour
         }
     }
 
-    public void PlaySound(string name) // ±âº»¼Ò¸® Àç»ı
+    public void PlaySound(string name) // ê¸°ë³¸ì†Œë¦¬ ì¬ìƒ
     {
         for (int i = 0; i < sounds.Length; i++)
         {
@@ -66,7 +66,7 @@ public class SoundDic : MonoBehaviour
         source.UnPause();
     }
 
-    public void FadeOutSound(float time) // ±âº»¼Ò¸® - > 0 
+    public void FadeOutSound(float time) // ê¸°ë³¸ì†Œë¦¬ - > 0 
     {
         StartCoroutine(FadeOutCoroutine(time));
     }
@@ -84,7 +84,7 @@ public class SoundDic : MonoBehaviour
         source.volume = 0;
     }
 
-    public void FadeInSound(float time) // 0 - > ±âº»¼Ò¸®
+    public void FadeInSound(float time) // 0 - > ê¸°ë³¸ì†Œë¦¬
     {
         StartCoroutine(FadeInCoroutine(time));
     }

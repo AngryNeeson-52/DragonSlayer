@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-//½ºÅ³ ¾ÆÀÌÄÜ ¿òÁ÷ÀÌ±â
+// ìŠ¤í‚¬ ì•„ì´ì½˜ ì›€ì§ì´ê¸°
 
 public class SkillIcon : UIset, IBeginDragHandler, IDragHandler, IEndDragHandler
 {

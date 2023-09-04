@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// ½ºÅ³ Á¤¸®
+//ìŠ¤í‚¬ ì •ë¦¬
 
 [System.Serializable]
 public class Skill
