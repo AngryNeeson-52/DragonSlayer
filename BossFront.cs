@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//º¸½º·ë ¾Õ µå·¡°ï ÄÚ°í´Â ¼Ò¸®, È­¸é Èçµé¸®´Â ÀÌº¥Æ®
+//ë³´ìŠ¤ë£¸ ì• ë“œë˜ê³¤ ì½”ê³ ëŠ” ì†Œë¦¬, í™”ë©´ í”ë“¤ë¦¬ëŠ” ì´ë²¤íŠ¸
 
 public class BossFront : MonoBehaviour
 {
@@ -58,5 +58,7 @@ public class BossFront : MonoBehaviour
         fieldSound.GetComponent<SoundDic>().UnPauseSound();
 
         screenEffect.GetOut();
+
+        Destroy(this.gameObject);
     }
 }
