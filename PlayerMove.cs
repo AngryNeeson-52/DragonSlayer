@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// ÇÃ·¹ÀÌ¾î ÀÌµ¿ Ã³¸®
+// í”Œë ˆì´ì–´ ì´ë™ ì²˜ë¦¬
 
 public class PlayerMove : MonoBehaviour
 {
@@ -16,14 +16,14 @@ public class PlayerMove : MonoBehaviour
     private float jumpForce, rotateSpeed, playerSpeedFW, playerSpeedetc;
 
 
-    private bool cpt = true; // ¸¶¿ì½º È¸Àü ¸·±â ¹öÆ° ÄÄÇ»ÅÍ¿ë
+    //private bool cpt = true; // ë§ˆìš°ìŠ¤ íšŒì „ ë§‰ê¸° ë²„íŠ¼ ì»´í“¨í„°ìš©
 
     private Vector3 leftright, frontback, direction, checkRay = new Vector3(0, 0.1f, 0);
     private bool canMove = true, land;
 
     void Update()
     {
-        /*    */
+        /*
         if (Input.GetKeyDown(KeyCode.F))
         {
             cpt = !cpt;
@@ -33,18 +33,18 @@ public class PlayerMove : MonoBehaviour
         {
             Rotation();
         }
-
+            */
         if (canMove)
         {
-            Move();
+            //Move();
             Jump();
         }
     }
 
-    /*    */
-    //ºôµå½Ã ÁÖ¼®Ã³¸®ÇÒ°Í
+    /*
+    //ë¹Œë“œì‹œ ì£¼ì„ì²˜ë¦¬í• ê²ƒ
     #region
-    void Rotation() // ½Ã¼± È¸Àü ÄÄÇ»ÅÍ¿ë
+    void Rotation() // ì‹œì„  íšŒì „ ì»´í“¨í„°ìš©
     {
         if (Input.GetAxisRaw("Mouse X") != 0)
         {
@@ -54,7 +54,7 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    void Move() // ÀÌµ¿ ÄÄÇ»ÅÍ¿ë
+    void Move() // ì´ë™ ì»´í“¨í„°ìš©
     {
 
         if (Input.GetAxisRaw("Vertical") != 0 || Input.GetAxisRaw("Horizontal") != 0)
@@ -82,8 +82,8 @@ public class PlayerMove : MonoBehaviour
         }
     }
     #endregion
-
-    void Jump() // ÄÄÇ»ÅÍ¿ë Á¡ÇÁ¿Í ¹Ù´Ú È®ÀÎ
+        */
+    void Jump() // ì»´í“¨í„°ìš© ì í”„ì™€ ë°”ë‹¥ í™•ì¸
     {
         if ((Physics.Raycast(transform.position + checkRay, Vector3.down, 0.2f)))
         {
@@ -94,13 +94,13 @@ public class PlayerMove : MonoBehaviour
                 attackSound.GetComponent<SoundDic>().PlaySound("Land");
             }
 
-            /**/
-            if (Input.GetKeyDown(KeyCode.Space)) // ÄÄÇ»ÅÍ¿ë ºôµå½Ã ÁÖ¼®Ã³¸®
+            /*
+            if (Input.GetKeyDown(KeyCode.Space)) // ì»´í“¨í„°ìš© ë¹Œë“œì‹œ ì£¼ì„ì²˜ë¦¬
             {
                 anim.SetTrigger("Jump");
                 rigid.velocity = transform.up * jumpForce;
             }
-
+            */
         }
         else
         {
@@ -114,7 +114,7 @@ public class PlayerMove : MonoBehaviour
         canMove = true;
     }
 
-    public void GetHit() // ÇÇ°İ ¾Ö´Ï¸ŞÀÌ¼Ç
+    public void GetHit() // í”¼ê²© ì• ë‹ˆë©”ì´ì…˜
     {
         canMove = false;
         anim.SetBool("Battle", true);
@@ -122,7 +122,7 @@ public class PlayerMove : MonoBehaviour
         attackSound.GetComponent<SoundDic>().PlaySound("HitSound");
     }
 
-    public void Attack(float AttackType) // °ø°İ ¾Ö´Ï¸ŞÀÌ¼Ç
+    public void Attack(float AttackType) // ê³µê²© ì• ë‹ˆë©”ì´ì…˜
     {
         canMove = false;
         anim.SetFloat("AttackType", AttackType);
@@ -131,21 +131,21 @@ public class PlayerMove : MonoBehaviour
         anim.SetBool("Battle", true);
     }
 
-    public void Peace() // ºñÀüÅõ ¾Ö´Ï¸ŞÀÌ¼Ç
+    public void Peace() // ë¹„ì „íˆ¬ ì• ë‹ˆë©”ì´ì…˜
     {
         anim.SetBool("Battle", false);   
     }
 
-    public void Dead() // »ç¸Á ¾Ö´Ï¸ŞÀÌ¼Ç
+    public void Dead() // ì‚¬ë§ ì• ë‹ˆë©”ì´ì…˜
     {
         anim.SetBool("Dead", true);
         anim.SetTrigger("GetHit");
     }
 
 
-    // ¸ğ¹ÙÀÏ
+    // ëª¨ë°”ì¼
     #region 
-    public void mobileJump() // Á¡ÇÁ ¹öÆ°
+    public void mobileJump() // ì í”„ ë²„íŠ¼
     {
         if ((Physics.Raycast(transform.position + checkRay, Vector3.down, 0.2f)) && canMove)
         {

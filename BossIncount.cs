@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// ∫∏Ω∫ ¡∂øÏΩ√ ∞¸∑√ ¿Ã∫•∆Æ
+// Î≥¥Ïä§ Ï°∞Ïö∞Ïãú Í¥ÄÎ†® Ïù¥Î≤§Ìä∏
 
 public class BossIncount : MonoBehaviour
 {
@@ -15,7 +15,7 @@ public class BossIncount : MonoBehaviour
     private Camera mainCamera;
     private ScreenEffect screenEffect;
 
-    private Vector3 zeroPos;
+    private Vector3 zeroPos, worldpos;
     private Quaternion zeroRot;
     private bool incounted = true;
 
@@ -26,7 +26,7 @@ public class BossIncount : MonoBehaviour
         screenEffect = FindObjectOfType<ScreenEffect>();
     }
 
-    private void OnTriggerEnter(Collider other) // ∫∏Ω∫ ¿‘¿Â ∆Æ∏Æ∞≈
+    private void OnTriggerEnter(Collider other) // Î≥¥Ïä§ ÏûÖÏû• Ìä∏Î¶¨Í±∞
     {
         if(incounted)
         {
@@ -38,10 +38,11 @@ public class BossIncount : MonoBehaviour
         }
     }
 
-    IEnumerator CameraCoroutine(Collider other) // ∫∏Ω∫ ƒ´∏ﬁ∂Û ø¨√‚
+    IEnumerator CameraCoroutine(Collider other) // Î≥¥Ïä§ Ïπ¥Î©îÎùº Ïó∞Ï∂ú
     {
         zeroPos = mainCamera.transform.localPosition;
         zeroRot = mainCamera.transform.localRotation;
+        worldpos = mainCamera.transform.position;
 
         screenEffect.ComeIn();
         mainCamera.transform.rotation = Quaternion.LookRotation(producePos.transform.position - new Vector3(other.transform.position.x, 20, other.transform.position.z));
@@ -59,9 +60,9 @@ public class BossIncount : MonoBehaviour
         dragon.GetComponent<SoundDic>().PlaySound("Roar");
         screenEffect.GetOut();
 
-        while (Vector3.Distance(mainCamera.transform.position, zeroPos) > 1)
+        while (Vector3.Distance(mainCamera.transform.position, worldpos) > 1)
         {
-            mainCamera.transform.position = Vector3.Lerp(zeroPos, mainCamera.transform.position, 0.5f);
+            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, worldpos, fadeSpeed * Time.deltaTime);
             yield return null;
         }
 

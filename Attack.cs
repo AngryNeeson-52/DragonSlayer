@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// ÇÃ·¹ÀÌ¾î °ø°İ, ÇÇ°İ, ÀüÅõ°ü·Ã
+// í”Œë ˆì´ì–´ ê³µê²©, í”¼ê²©, ì „íˆ¬ê´€ë ¨
 
 public class Attack : MonoBehaviour
 {
@@ -33,10 +33,10 @@ public class Attack : MonoBehaviour
 
         UpdateNaturalRecovery();
     }
-    /*    */
-    //ºôµå½Ã ÁÖ¼®Ã³¸®ÇÒ°Í
+    /* 
+    //ë¹Œë“œì‹œ ì£¼ì„ì²˜ë¦¬í• ê²ƒ
     #region
-    void Update() // ÄÄÇ»ÅÍ¿ë
+    void Update() // ì»´í“¨í„°ìš©
     {
         if (canAttack)
         {
@@ -45,7 +45,7 @@ public class Attack : MonoBehaviour
         }
     }
 
-    void BasicAttack() // ±âº» °ø°İ ÄÄÇ»ÅÍ¿ë
+    void BasicAttack() // ê¸°ë³¸ ê³µê²© ì»´í“¨í„°ìš©
     {
         if (Input.GetKeyDown(KeyCode.Q) && canBasicAttack)
         {
@@ -74,7 +74,7 @@ public class Attack : MonoBehaviour
         }
     }
 
-    void SkillAttack() // ½ºÅ³ °ø°İ ÄÄÇ»ÅÍ¿ë
+    void SkillAttack() // ìŠ¤í‚¬ ê³µê²© ì»´í“¨í„°ìš©
     {
         if (Input.GetKeyDown(KeyCode.E) && canSkillAttack)
         {
@@ -96,8 +96,8 @@ public class Attack : MonoBehaviour
         }
     }
     #endregion
-
-    IEnumerator CoolTimeCoroutine(float coolTime, bool basic) // °ø°İ ÄğÅ¸ÀÓ
+       */
+    IEnumerator CoolTimeCoroutine(float coolTime, bool basic) // ê³µê²© ì¿¨íƒ€ì„
     {
         if (basic)
         {
@@ -133,7 +133,7 @@ public class Attack : MonoBehaviour
         }
     }
 
-    IEnumerator AttackCoroutine(float attackTime, bool basic) // °ø°İ ÆÇÁ¤, °ø°İ·Â Á¶Á¤
+    IEnumerator AttackCoroutine(float attackTime, bool basic) // ê³µê²© íŒì •, ê³µê²©ë ¥ ì¡°ì •
     {
         playerStats.MPUpdate();
 
@@ -156,7 +156,7 @@ public class Attack : MonoBehaviour
         joystick.CanMove();
     }
 
-    void UpdateNaturalRecovery() // ÀüÅõ »óÅÂ Áö¼Ó½Ã ÀÚ¿¬È¸º¹ ÃÊ±âÈ­
+    void UpdateNaturalRecovery() // ì „íˆ¬ ìƒíƒœ ì§€ì†ì‹œ ìì—°íšŒë³µ ì´ˆê¸°í™”
     {
         if (naturalRecovery != null)
         {
@@ -166,7 +166,7 @@ public class Attack : MonoBehaviour
         naturalRecovery = StartCoroutine(NaturalRecovery());
     }
 
-    IEnumerator NaturalRecovery() // ÀÚ¿¬È¸º¹, ÀüÅõ »óÅÂ °»½Å
+    IEnumerator NaturalRecovery() // ìì—°íšŒë³µ, ì „íˆ¬ ìƒíƒœ ê°±ì‹ 
     {
         while (true)
         {
@@ -179,7 +179,7 @@ public class Attack : MonoBehaviour
         }
     }
 
-    public void GetHIt(float damage) // ÇÇ°İ Ã³¸®
+    public void GetHIt(float damage) // í”¼ê²© ì²˜ë¦¬
     {
         playerHitBox.SetActive(false);
         canAttack = false;
@@ -196,7 +196,7 @@ public class Attack : MonoBehaviour
         }
     }
 
-    IEnumerator GetHitCoroutine() // ÇÇ°İ ¹«Àû ½Ã°£
+    IEnumerator GetHitCoroutine() // í”¼ê²© ë¬´ì  ì‹œê°„
     {
         playerMove.GetHit();
         yield return waittime2;
@@ -207,28 +207,28 @@ public class Attack : MonoBehaviour
         canAttack = true;
     }
 
-    private void NoMana() // ¸¶³ª ºÎÁ· ¾Ë¸²
+    private void NoMana() // ë§ˆë‚˜ ë¶€ì¡± ì•Œë¦¼
     {
         if (announceFreq)
         {
             announceFreq = false;
             Vector3 camera = Camera.main.WorldToScreenPoint(this.transform.position);
             GameObject prefab = Instantiate(dmgText);
-            prefab.GetComponent<TextFloating>().TextSet("¸¶³ª°¡ ºÎÁ·ÇÕ´Ï´Ù", Color.green, camera);
+            prefab.GetComponent<TextFloating>().TextSet("ë§ˆë‚˜ê°€ ë¶€ì¡±í•©ë‹ˆë‹¤", Color.green, camera);
             StartCoroutine(AnnounceFreqCoroutine());
         }
     }
 
-    IEnumerator AnnounceFreqCoroutine() // ¾Ë¸² ÁÖ±â ¼³Á¤
+    IEnumerator AnnounceFreqCoroutine() // ì•Œë¦¼ ì£¼ê¸° ì„¤ì •
     {
         yield return waittime2;
         announceFreq = true;
     }
 
 
-    // ¸ğ¹ÙÀÏ
+    // ëª¨ë°”ì¼
     #region 
-    public void mobileBasicAttack() // °ø°İ ¹öÆ°
+    public void mobileBasicAttack() // ê³µê²© ë²„íŠ¼
     {
         if (canBasicAttack && canAttack)
         {
@@ -258,7 +258,7 @@ public class Attack : MonoBehaviour
         }
     }
 
-    public void mobileSkillAttack() // ½ºÅ³ °ø°İ
+    public void mobileSkillAttack() // ìŠ¤í‚¬ ê³µê²©
     {
         if (canSkillAttack && canAttack)
         {

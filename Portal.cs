@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Æ÷Å» ÃâÇö ÀÌº¥Æ®, Æ÷Å» ÀÛµ¿ ÄÚµå
+// í¬íƒˆ ì¶œí˜„ ì´ë²¤íŠ¸, í¬íƒˆ ì‘ë™ ì½”ë“œ
 
 public class Portal : MonoBehaviour
 {
@@ -17,7 +17,7 @@ public class Portal : MonoBehaviour
     private Camera mainCamera;
     private ScreenEffect screenEffect;
 
-    private Vector3 zeroPos;
+    private Vector3 zeroPos, worldpos;
     private Quaternion zeroRot;
 
     private bool portalCool = false;
@@ -29,7 +29,7 @@ public class Portal : MonoBehaviour
         screenEffect = FindObjectOfType<ScreenEffect>();
     }
 
-    private void OnTriggerEnter(Collider other) // Æ÷Å» ÀÌµ¿
+    private void OnTriggerEnter(Collider other) // í¬íƒˆ ì´ë™
     {
         if (portalCool)
         {
@@ -42,7 +42,7 @@ public class Portal : MonoBehaviour
         }
     }
 
-    private void OnEnable() // Æ÷Å» ÃâÇö
+    private void OnEnable() // í¬íƒˆ ì¶œí˜„
     {
         StartCoroutine(PortalCoroutine());
     }
@@ -56,6 +56,7 @@ public class Portal : MonoBehaviour
 
         zeroPos = mainCamera.transform.localPosition;
         zeroRot = mainCamera.transform.localRotation;
+        worldpos = mainCamera.transform.position;
 
         mainCamera.transform.rotation = Quaternion.LookRotation(this.transform.position - producePos.transform.position);
 
@@ -69,9 +70,9 @@ public class Portal : MonoBehaviour
         yield return new WaitForSeconds(3.0f);
         screenEffect.GetOut();
 
-        while (Vector3.Distance(mainCamera.transform.position, zeroPos) > 1)
+        while (Vector3.Distance(mainCamera.transform.position, worldpos) > 1)
         {
-            mainCamera.transform.position = Vector3.Lerp(zeroPos, mainCamera.transform.position, 0.5f);
+            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, worldpos, fadeSpeed * Time.deltaTime);
             yield return null;
         }
 
