@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-// ÇÊµå ºê±İ ±³Ã¼
+//í•„ë“œ ë¸Œê¸ˆ êµì²´
 
 public class SoundChange : MonoBehaviour
 {
